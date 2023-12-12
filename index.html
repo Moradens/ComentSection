@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Section</title>
+</head>
+<body>
+
+<div id="comments-section"></div>
+
+<script>
+
+    const comments = [
+        {
+            image: src="https://placekitten.com/g/200/300",
+            name: "Evžen",
+            date: new Date("2023-01-01T12:30:00Z"),
+            text: "I am stupid"
+        },
+        {
+            image: src="https://placekitten.com/g/200/300",
+            name: "Adam",
+            date: new Date("2023-01-02T08:45:00Z"),
+            text: "I like JS"
+        },
+        {
+            image: "https://placekitten.com/g/200/300",
+            name: "Tomáš",
+            date: new Date("2023-01-02T08:45:00Z"),
+            text: "I like Apple"
+        },
+    ];
+
+    const commentsSection = document.getElementById('comments-section');
+
+    comments.forEach(comment => {
+        const commentElement = document.createElement('div');
+        const imgElement = document.createElement('img');
+        imgElement.src = comment.imgSrc;
+        imgElement.alt = "Profile Picture";
+        imgElement.width = 50;
+        imgElement.height = 50;
+        imgElement.style.borderRadius = "50%";
+        commentElement.appendChild(imgElement);
+        commentElement.innerHTML += `
+        <strong>${comment.name}</strong> - ${comment.date.toLocaleString()}<br>
+        ${comment.text}
+        <hr>
+    `;
+        commentsSection.appendChild(commentElement);
+    });
+</script>
+
+</body>
+</html>
